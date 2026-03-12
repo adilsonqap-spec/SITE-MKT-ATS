@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mkt-tds.site/sitemap.xml
