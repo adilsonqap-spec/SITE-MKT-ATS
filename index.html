@@ -30,200 +30,194 @@
   <!-- INÍCIO SCHEMAS JSON-LD   -->
   <!-- ======================== -->
   <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://mkt-tds.site/#organization",
-      "name": "A&S Mídia Digital",
-      "url": "https://mkt-tds.site/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://mkt-tds.site/assets/img/logo-white-bg.png"
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://mkt-tds.site/#organization",
+        "name": "A&S Mídia Digital",
+        "url": "https://mkt-tds.site/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mkt-tds.site/assets/img/logo-white-bg.png"
+        },
+        "sameAs": [
+          "https://instagram.com/adilsont.sousa"
+        ]
       },
-      "sameAs": [
-        "https://instagram.com/adilsont.sousa"
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://mkt-tds.site/#localbusiness",
-      "name": "A&S Mídia Digital",
-      "image": "https://mkt-tds.site/assets/img/hero-bg.jpg",
-      "url": "https://mkt-tds.site/",
-      "telephone": "+555555996695492",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Rua Rafael Real, 95 - Casa 106",
-        "addressLocality": "Santa Maria",
-        "addressRegion": "RS",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-29.6842",
-        "longitude": "-53.8069"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "19:00"
-      },
-      "priceRange": "$$",
-      "areaServed": "Santa Maria RS e região",
-      "parentOrganization": {
-        "@id": "https://mkt-tds.site/#organization"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "https://mkt-tds.site/#website",
-      "url": "https://mkt-tds.site/",
-      "name": "Criação de Sites em Santa Maria RS - A&S Mídia Digital",
-      "publisher": {
-        "@id": "https://mkt-tds.site/#organization"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://mkt-tds.site/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Quanto custa a criação de um site profissional em Santa Maria?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "O investimento varia de acordo com a complexidade do projeto (site institucional, loja virtual ou landing page). Nosso foco não é preço, é entregar algo que dê RoI (Retorno sobre Investimento). Fale conosco no botão de WhatsApp para avaliarmos sua necessidade!"
-          }
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://mkt-tds.site/#localbusiness",
+        "name": "A&S Mídia Digital",
+        "image": "https://mkt-tds.site/assets/img/hero-bg.jpg",
+        "url": "https://mkt-tds.site/",
+        "telephone": "+555555996695492",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Rafael Real, 95 - Casa 106",
+          "addressLocality": "Santa Maria",
+          "addressRegion": "RS",
+          "addressCountry": "BR"
         },
-        {
-          "@type": "Question",
-          "name": "Quanto tempo demora para meu site ficar pronto?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Para Landing Pages e sites comerciais otimizados, o prazo varia de 7 a 15 dias úteis após a entrega dos materiais (textos e fotos) e aprovação da estrutura. Agilidade é nosso forte!"
-          }
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-29.6842",
+          "longitude": "-53.8069"
         },
-        {
-          "@type": "Question",
-          "name": "O que é SEO Local e por que minha empresa precisa do Google Meu Negócio?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "É a otimização para sua empresa aparecer no Google Maps e nas pesquisas regionais. Se alguém pesquisa 'seu serviço em Santa Maria' e você não está lá otimizado, seu concorrente está levando os clientes de graça."
-          }
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
         },
-        {
-          "@type": "Question",
-          "name": "Vocês atendem apenas Santa Maria ou outras cidades da região RS?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Atendemos todos os bairros de Santa Maria e qualquer cidade da região – o processo é 100% online, seguro e muito mais ágil que dependências físicas."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Meus clientes não usam Google, Tráfego Pago serve para mim?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim! Além do Google, fazemos anúncios rodando no Instagram e Facebook (Meta Ads). Todo mundo está no celular, só precisamos mapear o comportamento ideal para achar eles."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Qual a diferença entre Tráfego Pago e Gestão de Redes Sociais?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tráfego pago gera resultado imediato injetando verba nas plataformas. Redes sociais criam autoridade através de conteúdos consistentes a longo prazo, aquecendo e retendo o cliente que chega pelo tráfego."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Vocês fazem a manutenção e hospedagem do site depois de pronto?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Oferecemos planos contínuos de Suporte e Manutenção que englobam a hospedagem se o cliente desejar. Você nunca ficará abandonado após o término do projeto."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Como funciona o atendimento de vocês? Preciso ir até a agência?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Não. Nosso fluxo é otimizado para não gastar o seu tempo com reuniões desnecessárias. Fechamento, dúvidas, aprovações e atendimento completo é via WhatsApp de forma ágil e prática."
-          }
+        "priceRange": "$$",
+        "areaServed": "Santa Maria RS e região",
+        "parentOrganization": {
+          "@id": "https://mkt-tds.site/#organization"
         }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Criação de Sites Profissionais",
-      "description": "Desenvolvimento de sites rápidos, responsivos e focados em conversão utilizando UX estratégico, SEO e alta performance.",
-      "provider": {
-        "@id": "https://mkt-tds.site/#localbusiness"
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "Santa Maria"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Gestão de Google Meu Negócio",
-      "description": "Otimização completa do perfil no Google Maps com SEO local avançado, geotagueamento e gestão de avaliações.",
-      "provider": {
-        "@id": "https://mkt-tds.site/#localbusiness"
-      },
-      "areaServed": {
-        "@type": "City",
-        "name": "Santa Maria"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Tráfego Pago",
-      "description": "Gestão estratégica de campanhas no Google Ads e redes sociais para geração de leads qualificados diariamente.",
-      "provider": {
-        "@id": "https://mkt-tds.site/#localbusiness"
-      },
-      "areaServed": {
-        "@type": "City",
-        "name": "Santa Maria"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Gestão de Redes Sociais",
-      "description": "Planejamento estratégico de conteúdo, Social SEO e produção de vídeos curtos para aumentar alcance e autoridade.",
-      "provider": {
-        "@id": "https://mkt-tds.site/#localbusiness"
-      },
-      "areaServed": {
-        "@type": "City",
-        "name": "Santa Maria"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://mkt-tds.site/#breadcrumbs",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://mkt-tds.site/"
+      {
+        "@type": "WebSite",
+        "@id": "https://mkt-tds.site/#website",
+        "url": "https://mkt-tds.site/",
+        "name": "Criação de Sites em Santa Maria RS - A&S Mídia Digital",
+        "publisher": {
+          "@id": "https://mkt-tds.site/#organization"
         }
-      ]
-    }
-  ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://mkt-tds.site/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quanto custa a criação de um site profissional em Santa Maria?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O investimento varia de acordo com a complexidade do projeto (site institucional, loja virtual ou landing page). Nosso foco não é preço, é entregar algo que dê RoI (Retorno sobre Investimento). Fale conosco no botão de WhatsApp para avaliarmos sua necessidade!"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto tempo demora para meu site ficar pronto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para Landing Pages e sites comerciais otimizados, o prazo varia de 7 a 15 dias úteis após a entrega dos materiais (textos e fotos) e aprovação da estrutura. Agilidade é nosso forte!"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O que é SEO Local e por que minha empresa precisa do Google Meu Negócio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "É a otimização para sua empresa aparecer no Google Maps e nas pesquisas regionais. Se alguém pesquisa 'seu serviço em Santa Maria' e você não está lá otimizado, seu concorrente está levando os clientes de graça."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vocês atendem apenas Santa Maria ou outras cidades da região RS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Atendemos todos os bairros de Santa Maria e qualquer cidade da região – o processo é 100% online, seguro e muito mais ágil que dependências físicas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Meus clientes não usam Google, Tráfego Pago serve para mim?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim! Além do Google, fazemos anúncios rodando no Instagram e Facebook (Meta Ads). Todo mundo está no celular, só precisamos mapear o comportamento ideal para achar eles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual a diferença entre Tráfego Pago e Gestão de Redes Sociais?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tráfego pago gera resultado imediato injetando verba nas plataformas. Redes sociais criam autoridade através de conteúdos consistentes a longo prazo, aquecendo e retendo o cliente que chega pelo tráfego."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vocês fazem a manutenção e hospedagem do site depois de pronto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oferecemos planos contínuos de Suporte e Manutenção que englobam a hospedagem se o cliente desejar. Você nunca ficará abandonado após o término do projeto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funciona o atendimento de vocês? Preciso ir até a agência?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não. Nosso fluxo é otimizado para não gastar o seu tempo com reuniões desnecessárias. Fechamento, dúvidas, aprovações e atendimento completo é via WhatsApp de forma ágil e prática."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Criação de Sites Profissionais",
+        "description": "Desenvolvimento de sites rápidos, responsivos e focados em conversão utilizando UX estratégico, SEO e alta performance.",
+        "provider": {
+          "@id": "https://mkt-tds.site/#localbusiness"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Santa Maria"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Gestão de Google Meu Negócio",
+        "description": "Otimização completa do perfil no Google Maps com SEO local avançado, geotagueamento e gestão de avaliações.",
+        "provider": {
+          "@id": "https://mkt-tds.site/#localbusiness"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Santa Maria"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Tráfego Pago",
+        "description": "Gestão estratégica de campanhas no Google Ads e redes sociais para geração de leads qualificados diariamente.",
+        "provider": {
+          "@id": "https://mkt-tds.site/#localbusiness"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Santa Maria"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Gestão de Redes Sociais",
+        "description": "Planejamento estratégico de conteúdo, Social SEO e produção de vídeos curtos para aumentar alcance e autoridade.",
+        "provider": {
+          "@id": "https://mkt-tds.site/#localbusiness"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Santa Maria"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://mkt-tds.site/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mkt-tds.site/"
+          }
+        ]
+      }
+    ]
+  }
   </script>
   <!-- ======================== -->
   <!-- FIM SCHEMAS JSON-LD      -->
@@ -500,11 +494,11 @@
              </div>
            </a>
 
-           <a href="https://adilsonts.com" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden aspect-[4/3] rounded-xl border border-gray-800 hover:border-primaria transition-all duration-300 hover:-translate-y-2 shadow-lg glass">
+           <a href="https://presentes.fun/" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden aspect-[4/3] rounded-xl border border-gray-800 hover:border-primaria transition-all duration-300 hover:-translate-y-2 shadow-lg glass">
              <div class="absolute inset-0 flex items-center justify-center -z-10 bg-secundaria"></div>
              
              <div class="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none">
-               <iframe src="https://adilsonts.com" tabindex="-1" class="w-full h-full border-none pointer-events-none bg-white"></iframe>
+               <iframe src="https://presentes.fun/" tabindex="-1" class="w-full h-full border-none pointer-events-none bg-white"></iframe>
              </div>
              
              <div class="absolute inset-0 bg-black/70 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
