@@ -53,17 +53,33 @@
       </a>
       <nav class="hidden md:flex gap-8 items-center text-sm font-semibold tracking-wide text-texto">
         <a href="../index.html#hero" class="hover:text-primaria transition-colors">HOME</a>
-        <a href="../index.html#servicos" class="hover:text-primaria transition-colors text-primaria">SERVIÇOS</a>
-        <a href="../index.html#diferenciais" class="hover:text-primaria transition-colors">DIFERENCIAIS</a>
-        <a href="../index.html#sobre" class="hover:text-primaria transition-colors">A AGÊNCIA</a>
-        <a href="../index.html#contato" class="bg-primaria hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-all">FALE CONOSCO</a>
+        <div x-data="{ dropdown: false }" class="relative">
+          <button @mouseenter="dropdown = true" @click="dropdown = !dropdown" class="hover:text-primaria transition-colors text-primaria flex items-center gap-1 uppercase font-bold">
+            Serviços
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div x-show="dropdown" @mouseleave="dropdown = false" class="absolute top-full left-0 mt-2 w-64 bg-white shadow-xl rounded-lg border border-blue-100 py-2 z-50 text-sm font-semibold" style="display: none;">
+            <a href="criacao-de-sites.html" class="block px-4 py-2 bg-secundaria font-bold uppercase">Criação de Sites</a>
+            <a href="google-meu-negocio.html" class="block px-4 py-2 hover:bg-secundaria transition">Google Meu Negócio</a>
+            <a href="trafego-pago.html" class="block px-4 py-2 hover:bg-secundaria transition">Tráfego Pago</a>
+            <a href="gestao-de-redes-sociais.html" class="block px-4 py-2 hover:bg-secundaria transition">Redes Sociais</a>
+          </div>
+        </div>
+        <a href="../index.html#sobre" class="hover:text-primaria transition-colors uppercase">A AGÊNCIA</a>
+        <a href="../index.html#contato" class="bg-primaria hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-all uppercase whitespace-nowrap">FALE CONOSCO</a>
       </nav>
       <button @click="open = !open" class="md:hidden z-50 text-texto focus:outline-none">
         <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8"><path x-show="!open" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"></path><path x-show="open" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" style="display: none;"></path></svg>
       </button>
       <div x-show="open" x-transition.opacity class="fixed inset-0 bg-fundo/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 md:hidden text-lg font-bold font-title text-texto">
         <a href="../index.html#hero" @click="open = false" class="hover:text-primaria">HOME</a>
-        <a href="../index.html#servicos" @click="open = false" class="hover:text-primaria text-primaria">SERVIÇOS</a>
+        <div class="flex flex-col items-center gap-4 border-y border-blue-100 py-4 w-full uppercase">
+          <span class="text-xs uppercase text-gray-400 tracking-widest">Nossos Serviços</span>
+          <a href="criacao-de-sites.html" @click="open = false" class="text-primaria font-bold">Criação de Sites</a>
+          <a href="google-meu-negocio.html" @click="open = false" class="hover:text-primaria transition">Google Meu Negócio</a>
+          <a href="trafego-pago.html" @click="open = false" class="hover:text-primaria transition">Tráfego Pago</a>
+          <a href="gestao-de-redes-sociais.html" @click="open = false" class="hover:text-primaria transition">Redes Sociais</a>
+        </div>
         <a href="../index.html#sobre" @click="open = false" class="hover:text-primaria">A AGÊNCIA</a>
         <a href="../index.html#contato" @click="open = false" class="bg-primaria px-8 py-3 rounded text-white">CONTATO</a>
       </div>
@@ -99,15 +115,19 @@
             <div class="space-y-6">
               <div class="glass p-6 rounded-xl border-l-4 border-l-primaria">
                 <h3 class="text-xl font-bold mb-2">🚀 Alta Velocidade (Core Web Vitals)</h3>
-                <p class="text-gray-500">Sites lentos perdem clientes. Nossos projetos são otimizados para carregar em menos de 2 segundos, garantindo a melhor experiência e melhor rankeamento no Google.</p>
+                <p class="text-gray-500">Sites lentos perdem clientes. Nossos projetos são otimizados para carregar em menos de 2 segundos, garantindo a melhor experiência e melhor rankeamento no Google. Utilizamos tecnologias de ponta e compressão de ativos para máxima performance.</p>
               </div>
               <div class="glass p-6 rounded-xl border-l-4 border-l-primaria">
                 <h3 class="text-xl font-bold mb-2">📱 Design 100% Responsivo</h3>
-                <p class="text-gray-500">Seu site funcionará perfeitamente em qualquer dispositivo: smartphones, tablets e desktops. Adaptamos a experiência para o comportamento do seu usuário.</p>
+                <p class="text-gray-500">Seu site funcionará perfeitamente em qualquer dispositivo: smartphones, tablets e desktops. Adaptamos a experiência para o comportamento do seu usuário, garantindo usabilidade em todas as telas.</p>
               </div>
               <div class="glass p-6 rounded-xl border-l-4 border-l-primaria">
                 <h3 class="text-xl font-bold mb-2">🎯 Foco Total em Conversão (UX)</h3>
-                <p class="text-gray-500">Não basta ser bonito, tem que vender. Aplicamos gatilhos mentais, botões estratégicos e uma jornada fluida para transformar o interesse em contato.</p>
+                <p class="text-gray-500">Não basta ser bonito, tem que vender. Aplicamos gatilhos mentais, botões estratégicos e uma jornada fluida para transformar o interesse em contato. Cada elemento é pensado para guiar o visitante até a ação final.</p>
+              </div>
+              <div class="glass p-6 rounded-xl border-l-4 border-l-primaria">
+                <h3 class="text-xl font-bold mb-2">🛡️ Segurança e Estabilidade</h3>
+                <p class="text-gray-500">Implementamos certificados SSL, backups automáticos e as melhores práticas de segurança para que você nunca precise se preocupar com quedas ou invasões.</p>
               </div>
             </div>
           </div>

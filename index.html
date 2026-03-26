@@ -277,7 +277,18 @@
       <!-- Desktop Menu -->
       <nav class="hidden md:flex gap-8 items-center text-sm font-semibold tracking-wide text-texto">
         <a href="#hero" class="hover:text-primaria transition-colors">HOME</a>
-        <a href="#servicos" class="hover:text-primaria transition-colors">SERVIÇOS</a>
+        <div x-data="{ dropdown: false }" class="relative">
+          <button @mouseenter="dropdown = true" @click="dropdown = !dropdown" class="hover:text-primaria transition-colors flex items-center gap-1 uppercase">
+            Serviços
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div x-show="dropdown" @mouseleave="dropdown = false" class="absolute top-full left-0 mt-2 w-64 bg-white shadow-xl rounded-lg border border-blue-100 py-2 z-50 text-sm font-semibold" style="display: none;">
+            <a href="servicos/criacao-de-sites.html" class="block px-4 py-2 hover:bg-secundaria transition">Criação de Sites</a>
+            <a href="servicos/google-meu-negocio.html" class="block px-4 py-2 hover:bg-secundaria transition">Google Meu Negócio</a>
+            <a href="servicos/trafego-pago.html" class="block px-4 py-2 hover:bg-secundaria transition">Tráfego Pago</a>
+            <a href="servicos/gestao-de-redes-sociais.html" class="block px-4 py-2 hover:bg-secundaria transition">Redes Sociais</a>
+          </div>
+        </div>
         <a href="#diferenciais" class="hover:text-primaria transition-colors">DIFERENCIAIS</a>
         <a href="#sobre" class="hover:text-primaria transition-colors">A AGÊNCIA</a>
         <a href="#faq" class="hover:text-primaria transition-colors">FAQ</a>
@@ -295,10 +306,14 @@
       <!-- Mobile Menu -->
       <div x-show="open" x-transition.opacity class="fixed inset-0 bg-fundo/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 md:hidden text-lg font-bold font-title text-texto">
         <a href="#hero" @click="open = false" class="hover:text-primaria">HOME</a>
-        <a href="#servicos" @click="open = false" class="hover:text-primaria">SERVIÇOS</a>
-        <a href="#diferenciais" @click="open = false" class="hover:text-primaria">DIFERENCIAIS</a>
+        <div class="flex flex-col items-center gap-4 border-y border-blue-100 py-4 w-full">
+          <span class="text-xs uppercase text-gray-400 tracking-widest">Nossos Serviços</span>
+          <a href="servicos/criacao-de-sites.html" @click="open = false" class="hover:text-primaria">Criação de Sites</a>
+          <a href="servicos/google-meu-negocio.html" @click="open = false" class="hover:text-primaria">Google Meu Negócio</a>
+          <a href="servicos/trafego-pago.html" @click="open = false" class="hover:text-primaria">Tráfego Pago</a>
+          <a href="servicos/gestao-de-redes-sociais.html" @click="open = false" class="hover:text-primaria">Redes Sociais</a>
+        </div>
         <a href="#sobre" @click="open = false" class="hover:text-primaria">A AGÊNCIA</a>
-        <a href="#faq" @click="open = false" class="hover:text-primaria">FAQ</a>
         <a href="#contato" @click="open = false" class="bg-primaria px-8 py-3 rounded text-white">CONTATO</a>
       </div>
     </div>
@@ -356,7 +371,11 @@
                   <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold font-title mb-3">Criação de Sites Profissionais</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">Desenvolvimento de sites rápidos, responsivos e focados em conversão utilizando UX estratégico, SEO e alta performance.</p>
+                <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">Desenvolvimento de sites rápidos, responsivos e focados em conversão utilizando UX estratégico, SEO e alta performance.</p>
+                <a href="servicos/criacao-de-sites.html" class="inline-flex items-center gap-2 text-primaria font-bold hover:gap-3 transition-all group/btn uppercase text-sm">
+                  Saber Mais Detalhes
+                  <svg class="w-5 h-5 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </a>
               </div>
             </div>
 
@@ -371,7 +390,11 @@
                   <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold font-title mb-3">Gestão de Google Meu Negócio</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">Otimização completa do perfil no Google Maps com SEO local avançado, geotagueamento e gestão de avaliações.</p>
+                <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">Otimização completa do perfil no Google Maps com SEO local avançado, geotagueamento e gestão de avaliações.</p>
+                <a href="servicos/google-meu-negocio.html" class="inline-flex items-center gap-2 text-primaria font-bold hover:gap-3 transition-all group/btn uppercase text-sm">
+                  Saber Mais Detalhes
+                  <svg class="w-5 h-5 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </a>
               </div>
             </div>
 
@@ -386,7 +409,11 @@
                   <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold font-title mb-3">Tráfego Pago</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">Gestão estratégica de campanhas no Google Ads e redes sociais para geração de leads qualificados diariamente.</p>
+                <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">Gestão estratégica de campanhas no Google Ads e redes sociais para geração de leads qualificados diariamente.</p>
+                <a href="servicos/trafego-pago.html" class="inline-flex items-center gap-2 text-primaria font-bold hover:gap-3 transition-all group/btn uppercase text-sm">
+                  Saber Mais Detalhes
+                  <svg class="w-5 h-5 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </a>
               </div>
             </div>
 
@@ -401,7 +428,11 @@
                   <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.514"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold font-title mb-3">Gestão de Redes Sociais</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">Planejamento estratégico de conteúdo, Social SEO e produção de vídeos curtos para aumentar alcance e autoridade.</p>
+                <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">Planejamento estratégico de conteúdo, Social SEO e produção de vídeos curtos para aumentar alcance e autoridade.</p>
+                <a href="servicos/gestao-de-redes-sociais.html" class="inline-flex items-center gap-2 text-primaria font-bold hover:gap-3 transition-all group/btn uppercase text-sm">
+                  Saber Mais Detalhes
+                  <svg class="w-5 h-5 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </a>
               </div>
             </div>
 
