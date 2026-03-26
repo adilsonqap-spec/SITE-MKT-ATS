@@ -276,6 +276,7 @@
       
       <!-- Desktop Menu -->
       <nav class="hidden md:flex gap-8 items-center text-sm font-semibold tracking-wide text-texto">
+        <a href="#hero" class="hover:text-primaria transition-colors">HOME</a>
         <a href="#servicos" class="hover:text-primaria transition-colors">SERVIÇOS</a>
         <a href="#diferenciais" class="hover:text-primaria transition-colors">DIFERENCIAIS</a>
         <a href="#sobre" class="hover:text-primaria transition-colors">A AGÊNCIA</a>
@@ -293,6 +294,7 @@
 
       <!-- Mobile Menu -->
       <div x-show="open" x-transition.opacity class="fixed inset-0 bg-fundo/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 md:hidden text-lg font-bold font-title text-texto">
+        <a href="#hero" @click="open = false" class="hover:text-primaria">HOME</a>
         <a href="#servicos" @click="open = false" class="hover:text-primaria">SERVIÇOS</a>
         <a href="#diferenciais" @click="open = false" class="hover:text-primaria">DIFERENCIAIS</a>
         <a href="#sobre" @click="open = false" class="hover:text-primaria">A AGÊNCIA</a>
