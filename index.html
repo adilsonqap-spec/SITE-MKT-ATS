@@ -236,10 +236,10 @@
       theme: {
         extend: {
           colors: {
-            primaria: '#0047AB',
-            secundaria: '#001F3F',
-            fundo: '#000000',
-            texto: '#FFFFFF',
+            primaria: '#3B82F6',
+            secundaria: '#DBEAFE',
+            fundo: '#F0F7FF',
+            texto: '#1E293B',
           },
           fontFamily: {
             sans: ['Open Sans', 'sans-serif'],
@@ -251,15 +251,15 @@
   </script>
 
   <style>
-    body { background-color: #000000; color: #FFFFFF; font-family: 'Open Sans', sans-serif; }
+    body { background-color: #F0F7FF; color: #1E293B; font-family: 'Open Sans', sans-serif; }
     h1, h2, h3, h4, h5, h6, .font-title { font-family: 'Montserrat', sans-serif; }
-    /* Efeito glassmorphism e premium */
-    .glass { background: rgba(0, 31, 63, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(0, 71, 171, 0.2); }
+    /* Efeito glassmorphism clean */
+    .glass { background: rgba(219, 234, 254, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.15); }
     /* Fix for header */
     .sticky-nav { position: fixed; top: 0; width: 100%; z-index: 50; }
   </style>
 </head>
-<body class="antialiased overflow-x-hidden selection:bg-primaria selection:text-white">
+<body class="antialiased overflow-x-hidden selection:bg-primaria selection:text-white text-texto">
 
   <!-- FLUTUANTE WPP -->
   <a href="https://wa.me/5555996695492?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20A%26S%20Mídia%20Digital." target="_blank" rel="noopener noreferrer" 
@@ -268,23 +268,23 @@
   </a>
 
   <!-- NAVBAR -->
-  <header x-data="{ open: false, atTop: true }" @scroll.window="atTop = (window.pageYOffset > 50) ? false : true" :class="atTop ? 'bg-transparent py-6' : 'glass py-3 sticky-nav shadow-lg'" class="fixed w-full z-40 transition-all duration-300">
+  <header x-data="{ open: false, atTop: true }" @scroll.window="atTop = (window.pageYOffset > 50) ? false : true" :class="atTop ? 'bg-fundo/80 backdrop-blur-sm py-6' : 'glass py-3 sticky-nav shadow-lg'" class="fixed w-full z-40 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
       <a href="#hero" class="flex-shrink-0 z-50">
         <img src="/assets/img/logo-white-bg.png" alt="A&S Mídia Digital" width="180" height="45" loading="lazy" class="h-[60px] md:h-[70px] w-auto">
       </a>
       
       <!-- Desktop Menu -->
-      <nav class="hidden md:flex gap-8 items-center text-sm font-semibold tracking-wide">
+      <nav class="hidden md:flex gap-8 items-center text-sm font-semibold tracking-wide text-texto">
         <a href="#servicos" class="hover:text-primaria transition-colors">SERVIÇOS</a>
         <a href="#diferenciais" class="hover:text-primaria transition-colors">DIFERENCIAIS</a>
         <a href="#sobre" class="hover:text-primaria transition-colors">A AGÊNCIA</a>
         <a href="#faq" class="hover:text-primaria transition-colors">FAQ</a>
-        <a href="#contato" class="bg-primaria hover:bg-blue-700 text-white px-6 py-2 rounded-md transition-all">FALE CONOSCO</a>
+        <a href="#contato" class="bg-primaria hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-all">FALE CONOSCO</a>
       </nav>
 
       <!-- Mobile Toggle -->
-      <button @click="open = !open" class="md:hidden z-50 text-white focus:outline-none">
+      <button @click="open = !open" class="md:hidden z-50 text-texto focus:outline-none">
         <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
           <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
           <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" style="display: none;"></path>
@@ -292,7 +292,7 @@
       </button>
 
       <!-- Mobile Menu -->
-      <div x-show="open" x-transition.opacity class="fixed inset-0 bg-fundo/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 md:hidden text-lg font-bold font-title">
+      <div x-show="open" x-transition.opacity class="fixed inset-0 bg-fundo/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 md:hidden text-lg font-bold font-title text-texto">
         <a href="#servicos" @click="open = false" class="hover:text-primaria">SERVIÇOS</a>
         <a href="#diferenciais" @click="open = false" class="hover:text-primaria">DIFERENCIAIS</a>
         <a href="#sobre" @click="open = false" class="hover:text-primaria">A AGÊNCIA</a>
@@ -308,24 +308,24 @@
       <!-- Background Image -->
       <div class="absolute inset-0 z-0">
         <!-- Placeholder Bg -->
-        <div class="absolute inset-0 bg-gradient-to-tr from-fundo via-secundaria to-fundo opacity-80 z-10"></div>
-        <img src="/assets/img/hero-bg.jpg" alt="Criação de Sites" width="1920" height="1080" loading="eager" class="w-full h-full object-cover z-0 opacity-50">
+        <div class="absolute inset-0 bg-gradient-to-tr from-white via-secundaria/50 to-white opacity-90 z-10"></div>
+        <img src="/assets/img/hero-bg.jpg" alt="Criação de Sites" width="1920" height="1080" loading="eager" class="w-full h-full object-cover z-0 opacity-20">
       </div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-20">
         <span class="inline-block py-1 px-3 rounded-full bg-primaria/20 border border-primaria text-primaria text-sm font-bold tracking-wider mb-6 uppercase">Acelere Suas Vendas</span>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold font-title leading-tight mb-8">
-          Criação de Sites em Santa Maria RS <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primaria">e Estratégias Digitais Profissionais</span>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold font-title leading-tight mb-8 text-texto">
+          Criação de Sites em Santa Maria RS <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">e Estratégias Digitais Profissionais</span>
         </h1>
-        <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+        <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
           Desenvolvemos sites rápidos e de alta conversão. Eleve o posicionamento da sua empresa no Google e nas redes sociais e domine o seu mercado local.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="https://wa.me/5555996695492?text=Olá,%20quero%20um%20orçamento%20de%20Criação%20de%20Sites." target="_blank" class="w-full sm:w-auto px-8 py-4 bg-primaria hover:bg-blue-600 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(0,71,171,0.5)] transition flex items-center justify-center gap-2">
+          <a href="https://wa.me/5555996695492?text=Olá,%20quero%20um%20orçamento%20de%20Criação%20de%20Sites." target="_blank" class="w-full sm:w-auto px-8 py-4 bg-primaria hover:bg-blue-600 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.4)] transition flex items-center justify-center gap-2">
             Falar no WhatsApp
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </a>
-          <a href="#servicos" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-gray-500 hover:border-white text-white font-bold rounded-lg transition">
+          <a href="#servicos" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-gray-300 hover:border-primaria text-texto font-bold rounded-lg transition">
             Ver Nossos Serviços
           </a>
         </div>
@@ -338,15 +338,15 @@
         <div class="glass p-8 md:p-12 rounded-2xl shadow-2xl backdrop-blur-xl">
           <div class="text-center mb-16">
             <h2 class="text-3xl md:text-5xl font-bold font-title mb-4">Como Ajudamos Empresas Locais a Crescer</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto text-lg">Soluções completas e validadas para gerar tráfego qualificado, autoridade e conversão para o seu negócio.</p>
+            <p class="text-gray-500 max-w-2xl mx-auto text-lg">Soluções completas e validadas para gerar tráfego qualificado, autoridade e conversão para o seu negócio.</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             
             <!-- Service 1 -->
-            <div class="group relative overflow-hidden border border-gray-800 hover:border-primaria bg-black/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 min-h-[300px] flex flex-col justify-end">
+            <div class="group relative overflow-hidden border border-blue-100 hover:border-primaria bg-white/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 min-h-[300px] flex flex-col justify-end">
               <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
                 <img src="/assets/img/servico-sites-v2.png" alt="Criação de Sites" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               </div>
               <div class="relative z-20">
@@ -354,14 +354,14 @@
                   <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold font-title mb-3">Criação de Sites Profissionais</h3>
-                <p class="text-gray-300 mb-6 leading-relaxed">Desenvolvimento de sites rápidos, responsivos e focados em conversão utilizando UX estratégico, SEO e alta performance.</p>
+                <p class="text-gray-600 mb-6 leading-relaxed">Desenvolvimento de sites rápidos, responsivos e focados em conversão utilizando UX estratégico, SEO e alta performance.</p>
               </div>
             </div>
 
             <!-- Service 2 -->
-            <div class="group relative overflow-hidden border border-gray-800 hover:border-primaria bg-black/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 min-h-[300px] flex flex-col justify-end">
+            <div class="group relative overflow-hidden border border-blue-100 hover:border-primaria bg-white/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 min-h-[300px] flex flex-col justify-end">
               <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
                 <img src="/assets/img/servico-gmn.png" alt="Gestão de Google Meu Negócio" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               </div>
               <div class="relative z-20">
@@ -369,14 +369,14 @@
                   <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold font-title mb-3">Gestão de Google Meu Negócio</h3>
-                <p class="text-gray-300 mb-6 leading-relaxed">Otimização completa do perfil no Google Maps com SEO local avançado, geotagueamento e gestão de avaliações.</p>
+                <p class="text-gray-600 mb-6 leading-relaxed">Otimização completa do perfil no Google Maps com SEO local avançado, geotagueamento e gestão de avaliações.</p>
               </div>
             </div>
 
             <!-- Service 3 -->
-            <div class="group relative overflow-hidden border border-gray-800 hover:border-primaria bg-black/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 min-h-[300px] flex flex-col justify-end">
+            <div class="group relative overflow-hidden border border-blue-100 hover:border-primaria bg-white/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 min-h-[300px] flex flex-col justify-end">
               <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
                 <img src="/assets/img/servico-ads.png" alt="Tráfego Pago" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               </div>
               <div class="relative z-20">
@@ -384,14 +384,14 @@
                   <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold font-title mb-3">Tráfego Pago</h3>
-                <p class="text-gray-300 mb-6 leading-relaxed">Gestão estratégica de campanhas no Google Ads e redes sociais para geração de leads qualificados diariamente.</p>
+                <p class="text-gray-600 mb-6 leading-relaxed">Gestão estratégica de campanhas no Google Ads e redes sociais para geração de leads qualificados diariamente.</p>
               </div>
             </div>
 
             <!-- Service 4 -->
-            <div class="group relative overflow-hidden border border-gray-800 hover:border-primaria bg-black/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 min-h-[300px] flex flex-col justify-end">
+            <div class="group relative overflow-hidden border border-blue-100 hover:border-primaria bg-white/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 min-h-[300px] flex flex-col justify-end">
               <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
                 <img src="/assets/img/servico-social.jpg" alt="Gestão de Redes Sociais" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               </div>
               <div class="relative z-20">
@@ -399,7 +399,7 @@
                   <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.514"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold font-title mb-3">Gestão de Redes Sociais</h3>
-                <p class="text-gray-300 mb-6 leading-relaxed">Planejamento estratégico de conteúdo, Social SEO e produção de vídeos curtos para aumentar alcance e autoridade.</p>
+                <p class="text-gray-600 mb-6 leading-relaxed">Planejamento estratégico de conteúdo, Social SEO e produção de vídeos curtos para aumentar alcance e autoridade.</p>
               </div>
             </div>
 
@@ -422,22 +422,22 @@
           <div class="lg:w-1/2">
             <span class="text-primaria font-bold tracking-wider text-sm uppercase mb-4 block">Alta Performance</span>
             <h2 class="text-3xl md:text-5xl font-bold font-title mb-6">Por Que Escolher Nossas Soluções Digitais?</h2>
-            <p class="text-gray-300 mb-8 text-lg leading-relaxed">Não fazemos apenas sites bonitos. Entregamos plataformas de vendas otimizadas e testadas para transformar visitantes em clientes reais.</p>
+            <p class="text-gray-600 mb-8 text-lg leading-relaxed">Não fazemos apenas sites bonitos. Entregamos plataformas de vendas otimizadas e testadas para transformar visitantes em clientes reais.</p>
             
             <ul class="space-y-4">
-              <li class="flex items-center gap-4 text-gray-200">
+              <li class="flex items-center gap-4 text-gray-700">
                 <svg class="w-6 h-6 text-primaria flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 Design focado na jornada do usuário e conversão
               </li>
-              <li class="flex items-center gap-4 text-gray-200">
+              <li class="flex items-center gap-4 text-gray-700">
                 <svg class="w-6 h-6 text-primaria flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 Sites otimizados para Core Web Vitals e alta velocidade
               </li>
-              <li class="flex items-center gap-4 text-gray-200">
+              <li class="flex items-center gap-4 text-gray-700">
                 <svg class="w-6 h-6 text-primaria flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 SEO On-Page implementado desde a estrutura do site
               </li>
-              <li class="flex items-center gap-4 text-gray-200">
+              <li class="flex items-center gap-4 text-gray-700">
                 <svg class="w-6 h-6 text-primaria flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 SEO Local avançado para Google Meu Negócio
               </li>
@@ -445,7 +445,7 @@
           </div>
           <div class="lg:w-1/2 w-full">
             <div class="relative rounded-2xl overflow-hidden glass aspect-video flex items-center justify-center border border-primaria/30">
-               <div class="absolute inset-0 bg-fundo/40 z-10"></div>
+               <div class="absolute inset-0 bg-fundo/20 z-10"></div>
                <!-- bg replacement logic / image placeholder -->
                <img src="/assets/img/ceo-analisando.png" alt="CEO analisando gráficos de performance SEO" class="w-full h-full object-cover">
             </div>
@@ -458,10 +458,10 @@
     <section id="sobre" class="py-24 bg-fundo">
       <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h2 class="text-3xl md:text-5xl font-bold font-title mb-6">A Agência Certa para o Seu Negócio</h2>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12">Somos a <strong class="text-white">A&S Mídia Digital</strong>. Atuamos fortemente em Santa Maria - RS ajudando empreendedores a profissionalizarem a sua presença digital.</p>
+        <p class="text-xl text-gray-500 max-w-3xl mx-auto mb-12">Somos a <strong class="text-texto">A&S Mídia Digital</strong>. Atuamos fortemente em Santa Maria - RS ajudando empreendedores a profissionalizarem a sua presença digital.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-           <a href="https://staging4.adilsonts.com" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden aspect-[4/3] rounded-xl border border-gray-800 hover:border-primaria transition-all duration-300 hover:-translate-y-2 shadow-lg glass">
+           <a href="https://staging4.adilsonts.com" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden aspect-[4/3] rounded-xl border border-blue-100 hover:border-primaria transition-all duration-300 hover:-translate-y-2 shadow-lg glass">
              <!-- Placeholder/Loader bg-color -->
              <div class="absolute inset-0 flex items-center justify-center -z-10 bg-secundaria"></div>
              
@@ -471,38 +471,38 @@
              </div>
              
              <!-- Overlay Effect -->
-             <div class="absolute inset-0 bg-black/70 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
-               <div class="font-title text-base sm:text-lg font-bold text-white bg-primaria px-6 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-[0_0_15px_rgba(0,71,171,0.5)] flex items-center gap-2">
+             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
+               <div class="font-title text-base sm:text-lg font-bold text-white bg-primaria px-6 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex items-center gap-2">
                  Ver Projeto
                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                </div>
              </div>
            </a>
 
-           <a href="https://clinicacentral.site/" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden aspect-[4/3] rounded-xl border border-gray-800 hover:border-primaria transition-all duration-300 hover:-translate-y-2 shadow-lg glass">
+           <a href="https://clinicacentral.site/" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden aspect-[4/3] rounded-xl border border-blue-100 hover:border-primaria transition-all duration-300 hover:-translate-y-2 shadow-lg glass">
              <div class="absolute inset-0 flex items-center justify-center -z-10 bg-secundaria"></div>
              
              <div class="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none">
                <iframe src="https://clinicacentral.site/" tabindex="-1" class="w-full h-full border-none pointer-events-none bg-white"></iframe>
              </div>
              
-             <div class="absolute inset-0 bg-black/70 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
-               <div class="font-title text-base sm:text-lg font-bold text-white bg-primaria px-6 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-[0_0_15px_rgba(0,71,171,0.5)] flex items-center gap-2">
+             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
+               <div class="font-title text-base sm:text-lg font-bold text-white bg-primaria px-6 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex items-center gap-2">
                  Ver Projeto
                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                </div>
              </div>
            </a>
 
-           <a href="https://presentes.fun/" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden aspect-[4/3] rounded-xl border border-gray-800 hover:border-primaria transition-all duration-300 hover:-translate-y-2 shadow-lg glass">
+           <a href="https://presentes.fun/" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden aspect-[4/3] rounded-xl border border-blue-100 hover:border-primaria transition-all duration-300 hover:-translate-y-2 shadow-lg glass">
              <div class="absolute inset-0 flex items-center justify-center -z-10 bg-secundaria"></div>
              
              <div class="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none">
                <iframe src="https://presentes.fun/" tabindex="-1" class="w-full h-full border-none pointer-events-none bg-white"></iframe>
              </div>
              
-             <div class="absolute inset-0 bg-black/70 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
-               <div class="font-title text-base sm:text-lg font-bold text-white bg-primaria px-6 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-[0_0_15px_rgba(0,71,171,0.5)] flex items-center gap-2">
+             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
+               <div class="font-title text-base sm:text-lg font-bold text-white bg-primaria px-6 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex items-center gap-2">
                  Ver Projeto
                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                </div>
@@ -517,94 +517,94 @@
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-5xl font-bold font-title mb-4">Perguntas Frequentes</h2>
-          <p class="text-gray-400">Tudo que você precisa saber antes de iniciar seu projeto.</p>
+            <p class="text-gray-500">Tudo que você precisa saber antes de iniciar seu projeto.</p>
         </div>
 
         <div class="space-y-4" x-data="{ active: null }">
           <!-- FAQ 1 -->
-          <div class="glass rounded-lg border border-gray-800 overflow-hidden">
-            <button @click="active = active === 1 ? null : 1" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-black/50 hover:bg-gray-900 transition focus:outline-none">
+          <div class="glass rounded-lg border border-blue-100 overflow-hidden">
+            <button @click="active = active === 1 ? null : 1" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-white/50 hover:bg-blue-50 transition focus:outline-none">
               <span>Quanto custa a criação de um site profissional em Santa Maria?</span>
               <svg class="w-5 h-5 transition-transform" :class="{'rotate-180 text-primaria': active === 1}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div x-show="active === 1" x-collapse x-cloak class="px-6 py-5 bg-black/30 border-t border-gray-800 text-gray-300">
+            <div x-show="active === 1" x-collapse x-cloak class="px-6 py-5 bg-white/30 border-t border-blue-100 text-gray-600">
               O investimento varia de acordo com a complexidade do projeto (site institucional, loja virtual ou landing page). Nosso foco não é preço, é entregar algo que dê RoI (Retorno sobre Investimento). Fale conosco no botão de WhatsApp para avaliarmos sua necessidade!
             </div>
           </div>
 
           <!-- FAQ 2 -->
-          <div class="glass rounded-lg border border-gray-800 overflow-hidden">
-            <button @click="active = active === 2 ? null : 2" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-black/50 hover:bg-gray-900 transition focus:outline-none">
+          <div class="glass rounded-lg border border-blue-100 overflow-hidden">
+            <button @click="active = active === 2 ? null : 2" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-white/50 hover:bg-blue-50 transition focus:outline-none">
               <span>Quanto tempo demora para meu site ficar pronto?</span>
               <svg class="w-5 h-5 transition-transform" :class="{'rotate-180 text-primaria': active === 2}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div x-show="active === 2" x-collapse x-cloak class="px-6 py-5 bg-black/30 border-t border-gray-800 text-gray-300">
+            <div x-show="active === 2" x-collapse x-cloak class="px-6 py-5 bg-white/30 border-t border-blue-100 text-gray-600">
               Para Landing Pages e sites comerciais otimizados, o prazo varia de 7 a 15 dias úteis após a entrega dos materiais (textos e fotos) e aprovação da estrutura. Agilidade é nosso forte!
             </div>
           </div>
 
           <!-- FAQ 3 -->
-          <div class="glass rounded-lg border border-gray-800 overflow-hidden">
-            <button @click="active = active === 3 ? null : 3" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-black/50 hover:bg-gray-900 transition focus:outline-none">
+          <div class="glass rounded-lg border border-blue-100 overflow-hidden">
+            <button @click="active = active === 3 ? null : 3" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-white/50 hover:bg-blue-50 transition focus:outline-none">
               <span>O que é SEO Local e por que minha empresa precisa do Google Meu Negócio?</span>
               <svg class="w-5 h-5 transition-transform" :class="{'rotate-180 text-primaria': active === 3}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div x-show="active === 3" x-collapse x-cloak class="px-6 py-5 bg-black/30 border-t border-gray-800 text-gray-300">
+            <div x-show="active === 3" x-collapse x-cloak class="px-6 py-5 bg-white/30 border-t border-blue-100 text-gray-600">
               É a otimização para sua empresa aparecer no Google Maps e nas pesquisas regionais. Se alguém pesquisa "seu serviço em Santa Maria" e você não está lá otimizado, seu concorrente está levando os clientes de graça.
             </div>
           </div>
 
           <!-- FAQ 4 -->
-          <div class="glass rounded-lg border border-gray-800 overflow-hidden">
-            <button @click="active = active === 4 ? null : 4" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-black/50 hover:bg-gray-900 transition focus:outline-none">
+          <div class="glass rounded-lg border border-blue-100 overflow-hidden">
+            <button @click="active = active === 4 ? null : 4" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-white/50 hover:bg-blue-50 transition focus:outline-none">
               <span>Vocês atendem apenas Santa Maria ou outras cidades da região RS?</span>
               <svg class="w-5 h-5 transition-transform" :class="{'rotate-180 text-primaria': active === 4}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div x-show="active === 4" x-collapse x-cloak class="px-6 py-5 bg-black/30 border-t border-gray-800 text-gray-300">
+            <div x-show="active === 4" x-collapse x-cloak class="px-6 py-5 bg-white/30 border-t border-blue-100 text-gray-600">
               Atendemos todos os bairros de Santa Maria e qualquer cidade da região – o processo é 100% online, seguro e muito mais ágil que dependências físicas.
             </div>
           </div>
           
           <!-- FAQ 5 -->
-          <div class="glass rounded-lg border border-gray-800 overflow-hidden">
-            <button @click="active = active === 5 ? null : 5" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-black/50 hover:bg-gray-900 transition focus:outline-none">
+          <div class="glass rounded-lg border border-blue-100 overflow-hidden">
+            <button @click="active = active === 5 ? null : 5" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-white/50 hover:bg-blue-50 transition focus:outline-none">
               <span>Meus clientes não usam Google, Tráfego Pago serve para mim?</span>
               <svg class="w-5 h-5 transition-transform" :class="{'rotate-180 text-primaria': active === 5}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div x-show="active === 5" x-collapse x-cloak class="px-6 py-5 bg-black/30 border-t border-gray-800 text-gray-300">
+            <div x-show="active === 5" x-collapse x-cloak class="px-6 py-5 bg-white/30 border-t border-blue-100 text-gray-600">
               Sim! Além do Google, fazemos anúncios rodando no Instagram e Facebook (Meta Ads). Todo mundo está no celular, só precisamos mapear o comportamento ideal para achar eles.
             </div>
           </div>
 
           <!-- FAQ 6 -->
-          <div class="glass rounded-lg border border-gray-800 overflow-hidden">
-            <button @click="active = active === 6 ? null : 6" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-black/50 hover:bg-gray-900 transition focus:outline-none">
+          <div class="glass rounded-lg border border-blue-100 overflow-hidden">
+            <button @click="active = active === 6 ? null : 6" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-white/50 hover:bg-blue-50 transition focus:outline-none">
               <span>Qual a diferença entre Tráfego Pago e Gestão de Redes Sociais?</span>
               <svg class="w-5 h-5 transition-transform" :class="{'rotate-180 text-primaria': active === 6}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div x-show="active === 6" x-collapse x-cloak class="px-6 py-5 bg-black/30 border-t border-gray-800 text-gray-300">
+            <div x-show="active === 6" x-collapse x-cloak class="px-6 py-5 bg-white/30 border-t border-blue-100 text-gray-600">
               Tráfego pago gera resultado imediato injetando verba nas plataformas. Redes sociais criam autoridade através de conteúdos consistentes a longo prazo, aquecendo e retendo o cliente que chega pelo tráfego.
             </div>
           </div>
 
           <!-- FAQ 7 -->
-          <div class="glass rounded-lg border border-gray-800 overflow-hidden">
-            <button @click="active = active === 7 ? null : 7" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-black/50 hover:bg-gray-900 transition focus:outline-none">
+          <div class="glass rounded-lg border border-blue-100 overflow-hidden">
+            <button @click="active = active === 7 ? null : 7" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-white/50 hover:bg-blue-50 transition focus:outline-none">
               <span>Vocês fazem a manutenção e hospedagem do site depois de pronto?</span>
               <svg class="w-5 h-5 transition-transform" :class="{'rotate-180 text-primaria': active === 7}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div x-show="active === 7" x-collapse x-cloak class="px-6 py-5 bg-black/30 border-t border-gray-800 text-gray-300">
+            <div x-show="active === 7" x-collapse x-cloak class="px-6 py-5 bg-white/30 border-t border-blue-100 text-gray-600">
               Oferecemos planos contínuos de Suporte e Manutenção que englobam a hospedagem se o cliente desejar. Você nunca ficará abandonado após o término do projeto.
             </div>
           </div>
           
           <!-- FAQ 8 -->
-          <div class="glass rounded-lg border border-gray-800 overflow-hidden">
-            <button @click="active = active === 8 ? null : 8" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-black/50 hover:bg-gray-900 transition focus:outline-none">
+          <div class="glass rounded-lg border border-blue-100 overflow-hidden">
+            <button @click="active = active === 8 ? null : 8" class="w-full text-left px-6 py-5 font-bold font-title text-lg flex justify-between items-center bg-white/50 hover:bg-blue-50 transition focus:outline-none">
               <span>Como funciona o atendimento de vocês? Preciso ir até a agência?</span>
               <svg class="w-5 h-5 transition-transform" :class="{'rotate-180 text-primaria': active === 8}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div x-show="active === 8" x-collapse x-cloak class="px-6 py-5 bg-black/30 border-t border-gray-800 text-gray-300">
+            <div x-show="active === 8" x-collapse x-cloak class="px-6 py-5 bg-white/30 border-t border-blue-100 text-gray-600">
               Não. Nosso fluxo é otimizado para não gastar o seu tempo com reuniões desnecessárias. Fechamento, dúvidas, aprovações e atendimento completo é via WhatsApp de forma ágil e prática.
             </div>
           </div>
@@ -616,23 +616,23 @@
     <!-- CONTATO SECTION (Conversão 100% WhatsApp) -->
     <section id="contato" class="py-24 bg-fundo">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="glass rounded-3xl p-8 md:p-16 border border-primaria/50 flex flex-col items-center text-center">
-          <div class="w-20 h-20 bg-primaria rounded-full flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(0,71,171,0.6)] animate-pulse">
+        <div class="glass rounded-3xl p-8 md:p-16 border border-primaria/30 flex flex-col items-center text-center">
+          <div class="w-20 h-20 bg-primaria rounded-full flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(59,130,246,0.4)] animate-pulse">
              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
           </div>
           <h2 class="text-3xl md:text-5xl font-bold font-title mb-6">Pronto para Dominar Sua Região?</h2>
-          <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">Tire suas dúvidas ou peça um orçamento sem compromisso preenchendo nenhum formulário longo. É direto no WhatsApp.</p>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">Tire suas dúvidas ou peça um orçamento sem compromisso preenchendo nenhum formulário longo. É direto no WhatsApp.</p>
           
-          <a href="https://wa.me/5555996695492?text=Olá,%20acessei%20o%20site%20e%20gostaria%20de%20falar%20sobre%20o%20crescimento%20da%20minha%20empresa." target="_blank" class="px-10 py-5 bg-primaria hover:bg-blue-600 text-white text-xl font-bold font-title rounded-lg shadow-[0_0_20px_rgba(0,71,171,0.5)] transition hover:scale-105 flex items-center justify-center gap-3">
+          <a href="https://wa.me/5555996695492?text=Olá,%20acessei%20o%20site%20e%20gostaria%20de%20falar%20sobre%20o%20crescimento%20da%20minha%20empresa." target="_blank" class="px-10 py-5 bg-primaria hover:bg-blue-600 text-white text-xl font-bold font-title rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.4)] transition hover:scale-105 flex items-center justify-center gap-3">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             Falar no WhatsApp
           </a>
 
-          <div class="mt-12 flex flex-col md:flex-row gap-6 md:gap-12 text-left md:text-left text-sm text-gray-400">
+          <div class="mt-12 flex flex-col md:flex-row gap-6 md:gap-12 text-left md:text-left text-sm text-gray-500">
              <div class="flex items-start gap-3">
                 <svg class="w-6 h-6 text-primaria mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <div class="flex flex-col gap-1 leading-relaxed">
-                  <span class="font-bold text-white">Horário:</span>
+                  <span class="font-bold text-texto">Horário:</span>
                   <span>Atendimento de Segunda a Sábado</span>
                   <span>Horários flexíveis via WhatsApp</span>
                 </div>
@@ -647,7 +647,7 @@
     </section>
   </main>
 
-  <footer class="bg-black py-12 border-t border-gray-900">
+  <footer class="bg-white py-12 border-t border-blue-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-8">
         <div>
@@ -656,7 +656,7 @@
           </a>
         </div>
         
-        <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold tracking-wide text-gray-400">
+        <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold tracking-wide text-gray-500">
           <a href="#hero" class="hover:text-primaria transition">INÍCIO</a>
           <a href="#servicos" class="hover:text-primaria transition">SERVIÇOS</a>
           <a href="#diferenciais" class="hover:text-primaria transition">DIFERENCIAIS</a>
@@ -665,15 +665,15 @@
         </div>
         
         <div class="flex gap-4">
-          <a href="https://instagram.com/adilsont.sousa" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-primaria hover:border-primaria transition">
+          <a href="https://instagram.com/adilsont.sousa" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center text-texto hover:text-primaria hover:border-primaria transition">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
         </div>
       </div>
       
-      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+      <div class="border-t border-blue-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
         <p>© 2026 A&S Mídia Digital. Todos os direitos reservados.</p>
-        <p class="mt-4 md:mt-0">Desenvolvido por <span class="text-white font-semibold">A&S Mídia Digital</span></p>
+        <p class="mt-4 md:mt-0">Desenvolvido por <span class="text-texto font-semibold">A&S Mídia Digital</span></p>
       </div>
     </div>
   </footer>
