@@ -35,6 +35,100 @@
     h1, h2, h3, h4, h5, h6, .font-title { font-family: 'Montserrat', sans-serif; }
     .glass { background: rgba(219, 234, 254, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.15); }
     .sticky-nav { position: fixed; top: 0; width: 100%; z-index: 50; }
+
+    /* Mockup Laptop */
+    .laptop-mockup {
+      position: relative;
+      width: 85%;
+      margin: 0 auto;
+      perspective: 1200px;
+      transition: transform 0.5s ease;
+    }
+    .laptop-screen {
+      position: relative;
+      background: #1a1a1a;
+      border-radius: 14px 14px 0 0;
+      padding: 7px;
+      border: 2px solid #444;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+      z-index: 2;
+    }
+    .laptop-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 6px;
+    }
+    .laptop-base {
+      position: relative;
+      width: 116%;
+      height: 18px;
+      background: linear-gradient(to bottom, #e2e8f0, #adb5bd);
+      margin-left: -8%;
+      border-radius: 2px 2px 12px 12px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      z-index: 3;
+    }
+    .laptop-base::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25%;
+      height: 5px;
+      background: rgba(0,0,0,0.08);
+      border-radius: 0 0 5px 5px;
+    }
+
+    /* Mockup Smartphone */
+    .phone-mockup {
+      position: absolute;
+      right: -15px;
+      bottom: -10px;
+      width: 26%;
+      background: #0f172a;
+      border-radius: 24px;
+      padding: 6px;
+      border: 3px solid #334155;
+      aspect-ratio: 9/19;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      z-index: 10;
+      transition: transform 0.5s ease;
+    }
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      border-radius: 19px;
+      overflow: hidden;
+      position: relative;
+    }
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    /* Surface / Shadow */
+    .mockup-surface {
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120%;
+      height: 50px;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 75%);
+      z-index: 1;
+      filter: blur(10px);
+    }
+
+    .group:hover .laptop-mockup { transform: translateY(-5px) rotateX(2deg); }
+    .group:hover .phone-mockup { transform: translateY(-8px) scale(1.05); }
   </style>
 </head>
 <body class="antialiased overflow-x-hidden selection:bg-primaria selection:text-white text-texto">
@@ -127,14 +221,25 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           
           <!-- Projeto 1: adilsonts.com -->
-          <div class="glass overflow-hidden rounded-3xl group hover:shadow-2xl transition-all duration-500">
-            <div class="relative h-72 overflow-hidden">
-                <img src="assets/img/portfolio-adilsonts.png" alt="adilsonts.com" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-               <div class="absolute inset-0 bg-primaria/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-bold text-lg">Visitar Site</span>
-               </div>
+          <div class="glass overflow-hidden rounded-[2.5rem] group hover:shadow-2xl transition-all duration-500 p-6 flex flex-col justify-between">
+            <div class="relative py-12 px-4 mb-6">
+                <!-- Laptop -->
+                <div class="laptop-mockup">
+                  <div class="laptop-screen">
+                    <img src="assets/img/portfolio-adilsonts.png" alt="adilsonts.com">
+                  </div>
+                  <div class="laptop-base"></div>
+                </div>
+                <!-- Smartphone -->
+                <div class="phone-mockup">
+                  <div class="phone-screen">
+                    <img src="assets/img/portfolio-adilsonts.png" alt="adilsonts.com Mobile">
+                  </div>
+                </div>
+                <!-- Surface -->
+                <div class="mockup-surface"></div>
             </div>
-            <div class="p-8 text-center">
+            <div class="text-center">
               <h3 class="text-2xl font-black font-title mb-6">adilsonts.com</h3>
               <a href="https://adilsonts.com" target="_blank" class="inline-flex items-center gap-2 bg-primaria text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
                 Visitar Projeto <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -143,14 +248,25 @@
           </div>
 
           <!-- Projeto 2: staging0.adilsonts.com -->
-          <div class="glass overflow-hidden rounded-3xl group hover:shadow-2xl transition-all duration-500">
-            <div class="relative h-72 overflow-hidden">
-                <img src="assets/img/portfolio-staging0.png" alt="Projeto Staging 0" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-               <div class="absolute inset-0 bg-primaria/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-bold text-lg">Explorar Projeto</span>
-               </div>
+          <div class="glass overflow-hidden rounded-[2.5rem] group hover:shadow-2xl transition-all duration-500 p-6 flex flex-col justify-between">
+            <div class="relative py-12 px-4 mb-6">
+                <!-- Laptop -->
+                <div class="laptop-mockup">
+                  <div class="laptop-screen">
+                    <img src="assets/img/portfolio-staging0.png" alt="Projeto Staging 0">
+                  </div>
+                  <div class="laptop-base"></div>
+                </div>
+                <!-- Smartphone -->
+                <div class="phone-mockup">
+                  <div class="phone-screen">
+                    <img src="assets/img/portfolio-staging0.png" alt="Projeto Staging 0 Mobile">
+                  </div>
+                </div>
+                <!-- Surface -->
+                <div class="mockup-surface"></div>
             </div>
-            <div class="p-8 text-center">
+            <div class="text-center">
               <h3 class="text-2xl font-black font-title mb-6">Projeto Staging 0</h3>
               <a href="https://staging0.adilsonts.com" target="_blank" class="inline-flex items-center gap-2 bg-primaria text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
                 Visitar Projeto <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -159,14 +275,25 @@
           </div>
 
           <!-- Projeto 3: staging1.adilsonts.com -->
-          <div class="glass overflow-hidden rounded-3xl group hover:shadow-2xl transition-all duration-500">
-            <div class="relative h-72 overflow-hidden">
-               <img src="assets/img/portfolio-staging1.png" alt="Projeto Staging 1" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-               <div class="absolute inset-0 bg-primaria/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-bold text-lg">Explorar Projeto</span>
-               </div>
+          <div class="glass overflow-hidden rounded-[2.5rem] group hover:shadow-2xl transition-all duration-500 p-6 flex flex-col justify-between">
+            <div class="relative py-12 px-4 mb-6">
+                <!-- Laptop -->
+                <div class="laptop-mockup">
+                  <div class="laptop-screen">
+                    <img src="assets/img/portfolio-staging1.png" alt="Projeto Staging 1">
+                  </div>
+                  <div class="laptop-base"></div>
+                </div>
+                <!-- Smartphone -->
+                <div class="phone-mockup">
+                  <div class="phone-screen">
+                    <img src="assets/img/portfolio-staging1.png" alt="Projeto Staging 1 Mobile">
+                  </div>
+                </div>
+                <!-- Surface -->
+                <div class="mockup-surface"></div>
             </div>
-            <div class="p-8 text-center">
+            <div class="text-center">
               <h3 class="text-2xl font-black font-title mb-6">Projeto Staging 1</h3>
               <a href="https://staging1.adilsonts.com" target="_blank" class="inline-flex items-center gap-2 bg-primaria text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
                 Visitar Projeto <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -175,14 +302,25 @@
           </div>
 
           <!-- Projeto 4: staging2.adilsonts.com -->
-          <div class="glass overflow-hidden rounded-3xl group hover:shadow-2xl transition-all duration-500">
-            <div class="relative h-72 overflow-hidden">
-               <img src="assets/img/portfolio-staging2.png" alt="Projeto Staging 2" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-               <div class="absolute inset-0 bg-primaria/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-bold text-lg">Explorar Projeto</span>
-               </div>
+          <div class="glass overflow-hidden rounded-[2.5rem] group hover:shadow-2xl transition-all duration-500 p-6 flex flex-col justify-between">
+            <div class="relative py-12 px-4 mb-6">
+                <!-- Laptop -->
+                <div class="laptop-mockup">
+                  <div class="laptop-screen">
+                    <img src="assets/img/portfolio-staging2.png" alt="Projeto Staging 2">
+                  </div>
+                  <div class="laptop-base"></div>
+                </div>
+                <!-- Smartphone -->
+                <div class="phone-mockup">
+                  <div class="phone-screen">
+                    <img src="assets/img/portfolio-staging2.png" alt="Projeto Staging 2 Mobile">
+                  </div>
+                </div>
+                <!-- Surface -->
+                <div class="mockup-surface"></div>
             </div>
-            <div class="p-8 text-center">
+            <div class="text-center">
               <h3 class="text-2xl font-black font-title mb-6">Projeto Staging 2</h3>
               <a href="https://staging2.adilsonts.com" target="_blank" class="inline-flex items-center gap-2 bg-primaria text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
                 Visitar Projeto <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -191,14 +329,25 @@
           </div>
 
           <!-- Projeto 5: staging3.adilsonts.com -->
-          <div class="glass overflow-hidden rounded-3xl group hover:shadow-2xl transition-all duration-500">
-            <div class="relative h-72 overflow-hidden">
-               <img src="assets/img/portfolio-staging3.png" alt="Projeto Staging 3" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-               <div class="absolute inset-0 bg-primaria/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-bold text-lg">Explorar Projeto</span>
-               </div>
+          <div class="glass overflow-hidden rounded-[2.5rem] group hover:shadow-2xl transition-all duration-500 p-6 flex flex-col justify-between">
+            <div class="relative py-12 px-4 mb-6">
+                <!-- Laptop -->
+                <div class="laptop-mockup">
+                  <div class="laptop-screen">
+                    <img src="assets/img/portfolio-staging3.png" alt="Projeto Staging 3">
+                  </div>
+                  <div class="laptop-base"></div>
+                </div>
+                <!-- Smartphone -->
+                <div class="phone-mockup">
+                  <div class="phone-screen">
+                    <img src="assets/img/portfolio-staging3.png" alt="Projeto Staging 3 Mobile">
+                  </div>
+                </div>
+                <!-- Surface -->
+                <div class="mockup-surface"></div>
             </div>
-            <div class="p-8 text-center">
+            <div class="text-center">
               <h3 class="text-2xl font-black font-title mb-6">Projeto Staging 3</h3>
               <a href="https://staging3.adilsonts.com" target="_blank" class="inline-flex items-center gap-2 bg-primaria text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
                 Visitar Projeto <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -207,14 +356,25 @@
           </div>
 
           <!-- Projeto 6: SOS Vet (Staging 4) -->
-          <div class="glass overflow-hidden rounded-3xl group hover:shadow-2xl transition-all duration-500">
-            <div class="relative h-72 overflow-hidden">
-               <img src="assets/img/portfolio-staging4.png" alt="SOS Vet - Consultas Domiciliares" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-               <div class="absolute inset-0 bg-primaria/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-bold text-lg">SOS Vet</span>
-               </div>
+          <div class="glass overflow-hidden rounded-[2.5rem] group hover:shadow-2xl transition-all duration-500 p-6 flex flex-col justify-between">
+            <div class="relative py-12 px-4 mb-6">
+                <!-- Laptop -->
+                <div class="laptop-mockup">
+                  <div class="laptop-screen">
+                    <img src="assets/img/portfolio-staging4.png" alt="SOS Vet">
+                  </div>
+                  <div class="laptop-base"></div>
+                </div>
+                <!-- Smartphone -->
+                <div class="phone-mockup">
+                  <div class="phone-screen">
+                    <img src="assets/img/portfolio-staging4.png" alt="SOS Vet Mobile">
+                  </div>
+                </div>
+                <!-- Surface -->
+                <div class="mockup-surface"></div>
             </div>
-            <div class="p-8 text-center">
+            <div class="text-center">
               <h3 class="text-2xl font-black font-title mb-6">SOS Vet</h3>
               <a href="https://staging4.adilsonts.com" target="_blank" class="inline-flex items-center gap-2 bg-primaria text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
                 Visitar Projeto <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -223,14 +383,25 @@
           </div>
 
           <!-- Projeto 7: Clínica Central -->
-          <div class="glass overflow-hidden rounded-3xl group hover:shadow-2xl transition-all duration-500">
-            <div class="relative h-72 overflow-hidden">
-               <img src="assets/img/portfolio-clinicacentral.png" alt="Clínica Central" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-               <div class="absolute inset-0 bg-primaria/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-bold text-lg">Clínica Central</span>
-               </div>
+          <div class="glass overflow-hidden rounded-[2.5rem] group hover:shadow-2xl transition-all duration-500 p-6 flex flex-col justify-between">
+            <div class="relative py-12 px-4 mb-6">
+                <!-- Laptop -->
+                <div class="laptop-mockup">
+                  <div class="laptop-screen">
+                    <img src="assets/img/portfolio-clinicacentral.png" alt="Clínica Central">
+                  </div>
+                  <div class="laptop-base"></div>
+                </div>
+                <!-- Smartphone -->
+                <div class="phone-mockup">
+                  <div class="phone-screen">
+                    <img src="assets/img/portfolio-clinicacentral.png" alt="Clínica Central Mobile">
+                  </div>
+                </div>
+                <!-- Surface -->
+                <div class="mockup-surface"></div>
             </div>
-            <div class="p-8 text-center">
+            <div class="text-center">
               <h3 class="text-2xl font-black font-title mb-6">Clínica Central</h3>
               <a href="https://clinicacentral.site/" target="_blank" class="inline-flex items-center gap-2 bg-primaria text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
                 Visitar Projeto <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -239,14 +410,25 @@
           </div>
 
           <!-- Projeto 8: Presentes Fun -->
-          <div class="glass overflow-hidden rounded-3xl group hover:shadow-2xl transition-all duration-500">
-            <div class="relative h-72 overflow-hidden">
-               <img src="assets/img/portfolio-presentes.png" alt="Presentes Fun" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-               <div class="absolute inset-0 bg-primaria/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-bold text-lg">Presentes Fun</span>
-               </div>
+          <div class="glass overflow-hidden rounded-[2.5rem] group hover:shadow-2xl transition-all duration-500 p-6 flex flex-col justify-between">
+            <div class="relative py-12 px-4 mb-6">
+                <!-- Laptop -->
+                <div class="laptop-mockup">
+                  <div class="laptop-screen">
+                    <img src="assets/img/portfolio-presentes.png" alt="Presentes Fun">
+                  </div>
+                  <div class="laptop-base"></div>
+                </div>
+                <!-- Smartphone -->
+                <div class="phone-mockup">
+                  <div class="phone-screen">
+                    <img src="assets/img/portfolio-presentes.png" alt="Presentes Fun Mobile">
+                  </div>
+                </div>
+                <!-- Surface -->
+                <div class="mockup-surface"></div>
             </div>
-            <div class="p-8 text-center">
+            <div class="text-center">
               <h3 class="text-2xl font-black font-title mb-6">Presentes Fun</h3>
               <a href="https://presentes.fun/" target="_blank" class="inline-flex items-center gap-2 bg-primaria text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
                 Visitar Projeto <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
